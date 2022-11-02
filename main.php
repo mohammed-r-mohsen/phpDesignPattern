@@ -29,7 +29,7 @@ try {
     echo 'Error: ' . $th->getMessage(). "\n";
     echo 'Error: ' . $th->getLine(). "\n";
     echo 'Error: ' . $th->getFile(). "\n";
-    echo 'Error: ' . $th->getCode(). "\n";
-    
-   
+    echo 'Error: ' . $th->getCode(). "\n";   
 }
+
+
