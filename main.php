@@ -5,6 +5,9 @@ include './builderPattern/carbuilder.php';
 include './singlton/Databasse.php';
 include './prototypeDesign/blueColor.php';
 include './prototypeDesign/redColor.php';
+include './Adapter/sparrow.php';
+include './Adapter/plasticToyDuck.php';
+include './Adapter/BirdToyAdapter.php';
 try {
     
     echo 'factory design pattern'; 
@@ -25,6 +28,20 @@ try {
     $blueColor = new bluecolor() ;
     $newcolor = clone $blueColor ;
     //construct
+     // adapter design pattern
+     echo "\n----------------------------------------------------------------\n";
+     echo "adapter design pattern" ;
+     $sparrrow = new sparrow() ;
+    $toyduck = new plasticToyDuck() ;
+    $adapterBird = new BirdToyAdapter($sparrrow) ;
+    $sparrrow->makeSound() ; 
+    $toyduck->squeck();
+    $adapterBird->squeck();
+    // bridge design pattern 
+    echo "\n----------------------------------------------------------------\n";
+    echo "bridge design pattern" ;
+    
+
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage(). "\n";
     echo 'Error: ' . $th->getLine(). "\n";
