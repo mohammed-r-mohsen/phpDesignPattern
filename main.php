@@ -30,23 +30,20 @@ try {
     //construct
      // adapter design pattern
      echo "\n----------------------------------------------------------------\n";
-     echo "adapter design pattern" ;
+     echo "adapter design pattern\n" ;
      $sparrrow = new sparrow() ;
     $toyduck = new plasticToyDuck() ;
     $adapterBird = new BirdToyAdapter($sparrrow) ;
-    $sparrrow->makeSound() ; 
+    $sparrrow->makeSound(); 
     $toyduck->squeck();
     $adapterBird->squeck();
     // bridge design pattern 
     echo "\n----------------------------------------------------------------\n";
     echo "bridge design pattern" ;
-    
-
+       
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage(). "\n";
     echo 'Error: ' . $th->getLine(). "\n";
     echo 'Error: ' . $th->getFile(). "\n";
     echo 'Error: ' . $th->getCode(). "\n";   
 }
-
-

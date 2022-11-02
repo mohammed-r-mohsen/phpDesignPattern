@@ -1,6 +1,6 @@
 <?php 
 
-include 'Bird.php';
+include_once 'BirdInterface.php';
 
 class BirdToyAdapter  implements toyDuck 
 {

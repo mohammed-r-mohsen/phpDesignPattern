@@ -1,4 +1,5 @@
 <?php 
+include_once 'BirdInterface.php';
 class sparrow implements Bird
 {
      
@@ -9,7 +10,7 @@ class sparrow implements Bird
      public function fly(){
         echo "flying\n";
      }
-     
+
      public function makeSound()
      {
          echo "chirp\n";
