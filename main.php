@@ -15,6 +15,8 @@ include './Bridge/produce.php';
 include './composite/Devloper.php';
 include './composite/Manager.php';
 include './composite/CompositeDirectory.php';
+include './Decorator/rectanglee.php';
+include './Decorator/RedShapeDecrator.php';
 try {
 
     echo 'factory design pattern';
@@ -64,6 +66,12 @@ try {
     $directory->ShowEmplyeeDetails() ;
     $directory->remove($devloper2) ;
     $directory->ShowEmplyeeDetails();
+   // decrator
+   echo "----------------------------------------------------------------\n";
+   echo "decrator design pattern" ; 
+   $rectangle = new rectangle();
+   $redrectangle = new RedShappeDecrator($rectangle);
+   $redrectangle->draw();
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
