@@ -8,42 +8,54 @@ include './prototypeDesign/redColor.php';
 include './Adapter/sparrow.php';
 include './Adapter/plasticToyDuck.php';
 include './Adapter/BirdToyAdapter.php';
+include './Bridge/bike.php';
+include './Bridge/carBridge.php';
+include './Bridge/assubmle.php';
+include './Bridge/produce.php';
 try {
-    
-    echo 'factory design pattern'; 
+
+    echo 'factory design pattern';
     print(NotificationFactory::buildNotify('sms')->notifyUser());
     echo "\n----------------------------------------------------------------\n";
     echo "abstrct fctory pattern\n";
-    print(CarFactory::buildCar('usa' , 'golf'));
+    print(CarFactory::buildCar('usa', 'golf'));
     echo "\n----------------------------------------------------------------\n";
     echo "builder design pattern";
-    $buildcra = new carbuilder() ;
+    $buildcra = new carbuilder();
     $buildcra->setmotor("test")->setcolor("red")->setspeed("100");
     echo "\n----------------------------------------------------------------\n";
     echo "singleton design pattern\n";
     DataBase::getInstance()->getName();
     echo "\n----------------------------------------------------------------\n";
     echo "prototype design pattern\n";
-    $redcolor = new redcolor() ;
-    $blueColor = new bluecolor() ;
-    $newcolor = clone $blueColor ;
+    $redcolor = new redcolor();
+    $blueColor = new bluecolor();
+    $newcolor = clone $blueColor;
     //construct
-     // adapter design pattern
-     echo "\n----------------------------------------------------------------\n";
-     echo "adapter design pattern\n" ;
-     $sparrrow = new sparrow() ;
-    $toyduck = new plasticToyDuck() ;
-    $adapterBird = new BirdToyAdapter($sparrrow) ;
-    $sparrrow->makeSound(); 
+    // adapter design pattern
+    echo "\n----------------------------------------------------------------\n";
+    echo "adapter design pattern\n";
+    $sparrrow = new sparrow();
+    $toyduck = new plasticToyDuck();
+    $adapterBird = new BirdToyAdapter($sparrrow);
+    $sparrrow->makeSound();
     $toyduck->squeck();
     $adapterBird->squeck();
     // bridge design pattern 
     echo "\n----------------------------------------------------------------\n";
-    echo "bridge design pattern" ;
-       
+    echo "bridge design pattern\n";
+    $car = new carBridge(new assubmle() , new produce());
+    $car->manufactor();
+    echo "\n----------------------------- bike -----------------------------------\n";
+    $bike = new bike(new assubmle() , new produce());
+    $bike->manufactor();
+    //composite design pattern 
+    echo "composite design pattern\n";
+    echo "\n----------------------------------------------------------------\n";
+    
 } catch (\Throwable $th) {
-    echo 'Error: ' . $th->getMessage(). "\n";
-    echo 'Error: ' . $th->getLine(). "\n";
-    echo 'Error: ' . $th->getFile(). "\n";
-    echo 'Error: ' . $th->getCode(). "\n";   
+    echo 'Error: ' . $th->getMessage() ."\n";
+    echo 'Error: ' . $th->getLine() . "\n";
+    echo 'Error: ' . $th->getFile() . "\n";
+    echo 'Error: ' . $th->getCode() . "\n";
 }
