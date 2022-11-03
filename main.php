@@ -12,6 +12,9 @@ include './Bridge/bike.php';
 include './Bridge/carBridge.php';
 include './Bridge/assubmle.php';
 include './Bridge/produce.php';
+include './composite/Devloper.php';
+include './composite/Manager.php';
+include './composite/CompositeDirectory.php';
 try {
 
     echo 'factory design pattern';
@@ -52,7 +55,15 @@ try {
     //composite design pattern 
     echo "composite design pattern\n";
     echo "\n----------------------------------------------------------------\n";
-    
+    $devloper1 = new Devloper("mohammed" , 12018 , "php Devloper") ;    
+    $devloper2 = new Devloper("ahmad" , 12019 , "flutter Devloper") ;
+    $manager = new Manager("alaa" , 12020 , "marketing Manager") ;
+    $directory = new CompositeDirectory();
+    $directory->add($devloper1) ;     
+    $directory->add($devloper2) ;
+    $directory->ShowEmplyeeDetails() ;
+    $directory->remove($devloper2) ;
+    $directory->ShowEmplyeeDetails();
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
