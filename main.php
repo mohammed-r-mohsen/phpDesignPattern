@@ -17,6 +17,8 @@ include './composite/Manager.php';
 include './composite/CompositeDirectory.php';
 include './Decorator/rectanglee.php';
 include './Decorator/RedShapeDecrator.php';
+include './proxy/proxyinternet.php';
+include './proxy/realinternet.php';
 try {
 
     echo 'factory design pattern';
@@ -72,6 +74,14 @@ try {
    $rectangle = new rectangle();
    $redrectangle = new RedShappeDecrator($rectangle);
    $redrectangle->draw();
+   //facade 
+    echo "\n----------------------------------------------------------------\n" ; 
+    echo "proxy design pattern" ; 
+    $realinternet = new realinternet() ; 
+    $realinternet->connectingto("github.com");
+    $proxyinternet = new proxyinternet() ; 
+    $proxyinternet->connectingto("github.com");    
+    $proxyinternet->connectingto("def.com");    
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
