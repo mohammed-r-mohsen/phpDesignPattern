@@ -19,6 +19,10 @@ include './Decorator/rectanglee.php';
 include './Decorator/RedShapeDecrator.php';
 include './proxy/proxyinternet.php';
 include './proxy/realinternet.php';
+include '.\\Flyweight\\counterfactory.php';
+include '.\\Flyweight\\torresit.php';
+include '.\\Flyweight\\counterToresit.php';
+ 
 try {
 
     echo 'factory design pattern';
@@ -81,7 +85,14 @@ try {
     $realinternet->connectingto("github.com");
     $proxyinternet = new proxyinternet() ; 
     $proxyinternet->connectingto("github.com");    
-    $proxyinternet->connectingto("def.com");    
+    $proxyinternet->connectingto("def.com");
+    echo "\n----------------------------------------------------------------\n";
+    echo 'flyweigh design pattern ' ; 
+    $conterfactory = new counterFactoy();
+    $ct = counterFactoy::getPlayer('ct');
+    $ct->assigmentWeapen('ak-17');
+    echo "$ct";
+
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";

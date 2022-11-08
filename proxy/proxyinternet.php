@@ -15,7 +15,7 @@ class proxyinternet implements internet
     {
         $key =  array_search($serverHost, $this->denied, true);
         if ($key !== true)
-            throw new Exception("\naccess deniend tto $serverHost");
+            echo "acess ednied tp $serverHost";
         else
             echo "\nConnecting to " . $serverHost;
     }
