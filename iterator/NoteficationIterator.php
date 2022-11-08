@@ -2,7 +2,7 @@
 include_once 'iterator.php';
 class NotifcationIterator implements iteratorInterfacse
 {
-    private $NotifcationList = []; 
+    private  $NotifcationList = []; 
     private $pos = 0 ; 
 
     public function __construct($NotifcationList)
@@ -12,7 +12,8 @@ class NotifcationIterator implements iteratorInterfacse
 
     function next():object
     {
-        $notifcation = new notifcation($this->NotifcationList[$this->pos++]);
+        
+        $notifcation = $this->NotifcationList[$this->pos++];
         
         return $notifcation;
     }

@@ -1,6 +1,7 @@
 <?php 
 include_once 'collection.php';
 include_once 'Notifcation.php';
+include_once 'NoteficationIterator.php';
 class notifcationCollection implements Collection
 {
     private static  $max_item = 6 ;
@@ -8,9 +9,9 @@ class notifcationCollection implements Collection
     private $NotifcationList = [];
 
     public function __construct() {
-        $this->additem('notifcation 1 ');
-        $this->additem('notifcation 2 ');
-        $this->additem('notifcation 3 ');
+        $this->additem("notifcation 1 \n");
+        $this->additem("notifcation 2 \n");
+        $this->additem("notifcation 3 \n");
     }
 
     function CreateIterator(): iteratorInterfacse
@@ -21,9 +22,11 @@ class notifcationCollection implements Collection
     public function additem(String $item)
     {
          $n = new notifcation($item);
-         if(!$this->numbeerofItem>=$this->max_item)
-            $this->NotifcationList[$this->numbeerofItem++]=$n;
+if ($this->numbeerofItem<=notifcationCollection::$max_item) {
+    $this->NotifcationList[$this->numbeerofItem]=$n;
+    ++$this->numbeerofItem;
+}
         else 
-            echo 'the collection full ';
+            echo "\nthe collection full $item";
     }
 }

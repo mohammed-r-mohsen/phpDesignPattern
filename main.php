@@ -113,11 +113,11 @@ try {
     $lightoncommand->execute();
     $lighoffcommand->execute();
     echo "\n------------------------------------------------------------------\n";
-    echo "iterator design pattern";
+    echo "iterator design pattern\n";
     $NotfcationCollection = new notifcationCollection();
     $notoicationBar = new NotifcationBar($NotfcationCollection);
     $notoicationBar->printNotifcatins();
-    
+
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
