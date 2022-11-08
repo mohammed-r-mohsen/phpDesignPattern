@@ -24,7 +24,9 @@ include '.\\Flyweight\\torresit.php';
 include '.\\Flyweight\\counterToresit.php';
 include '.\\chanOfResponsibilty\\chain.php';
 include '.\\chanOfResponsibilty\\number.php';
- 
+include '.\\command\\light.php';
+include '.\\command\\lightOnCommand.php';
+include '.\\command\\lightoffCommand.php';
 try {
 
     echo 'factory design pattern';
@@ -101,7 +103,14 @@ try {
     $chain->process(new number(50));   
     $chain->process(new number(-50));   
     $chain->process(new number(0));
-       
+    echo "\n------------------------------------------------------------------\n";
+    echo "command design pattern";
+    $light = new light();
+    $lightoncommand = new lightOnCommand($light);
+    $lighoffcommand = new lightOffCommand($light);
+    $lightoncommand->execute();
+    $lighoffcommand->execute();
+
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
