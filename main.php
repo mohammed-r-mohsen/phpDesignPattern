@@ -27,6 +27,8 @@ include '.\\chanOfResponsibilty\\number.php';
 include '.\\command\\light.php';
 include '.\\command\\lightOnCommand.php';
 include '.\\command\\lightoffCommand.php';
+include '.\\iterator\\NoteficationBar.php';
+include '.\\iterator\\NotifcationCollection.php';
 try {
 
     echo 'factory design pattern';
@@ -110,7 +112,12 @@ try {
     $lighoffcommand = new lightOffCommand($light);
     $lightoncommand->execute();
     $lighoffcommand->execute();
-
+    echo "\n------------------------------------------------------------------\n";
+    echo "iterator design pattern";
+    $NotfcationCollection = new notifcationCollection();
+    $notoicationBar = new NotifcationBar($NotfcationCollection);
+    $notoicationBar->printNotifcatins();
+    
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";

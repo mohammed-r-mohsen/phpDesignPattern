@@ -1,8 +1,10 @@
 <?php 
+include_once 'collection.php';
+include_once 'Notifcation.php';
 class notifcationCollection implements Collection
 {
     private static  $max_item = 6 ;
-    private int $numbeerofItem ; 
+    private int $numbeerofItem =0; 
     private $NotifcationList = [];
 
     public function __construct() {
