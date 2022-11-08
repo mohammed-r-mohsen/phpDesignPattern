@@ -22,6 +22,8 @@ include './proxy/realinternet.php';
 include '.\\Flyweight\\counterfactory.php';
 include '.\\Flyweight\\torresit.php';
 include '.\\Flyweight\\counterToresit.php';
+include '.\\chanOfResponsibilty\\chain.php';
+include '.\\chanOfResponsibilty\\number.php';
  
 try {
 
@@ -92,7 +94,14 @@ try {
     $ct = counterFactoy::getPlayer('ct');
     $ct->assigmentWeapen('ak-17');
     echo "$ct";
-
+    
+    echo "\n----------------------------------------------------------------\n";
+    echo "chain of responsibilty design pattern";
+    $chain = new chain();
+    $chain->process(new number(50));   
+    $chain->process(new number(-50));   
+    $chain->process(new number(0));
+       
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
