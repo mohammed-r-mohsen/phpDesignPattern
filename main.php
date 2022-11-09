@@ -34,6 +34,8 @@ include '.\\Mediator\\fligh.php';
 include '.\\Mediator\\atcMediator.php';
 include '.\\Memento\\life.php';
 include '.\\Memento\\memento.php';
+include '.\\observer\\PatternSubject.php';
+include '.\\observer\\PatternObserver.php';
 try {
 
     echo 'factory design pattern';
@@ -151,7 +153,18 @@ try {
         echo $key . " : $value ";
       }
     $life->RestorFromMemento($Memento[1]);
-} catch (\Throwable $th) {
+
+      echo"\n----------------------------------------------------------------\n";
+      echo "Observer design pattern \n";
+    $patternGossiper = new PatternSubject();
+    $patternGossipFan = new PatternObserver();
+    $patternGossiper->attach($patternGossipFan);
+    $patternGossiper->UpdateFav('abstract factory, decorator, visitor');
+    $patternGossiper->UpdateFav('abstract factory, observer, decorator');
+    $patternGossiper->dettach($patternGossipFan);
+    $patternGossiper->UpdateFav('abstract factory, observer, paisley');
+
+  } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
     echo 'Error: ' . $th->getFile() . "\n";
