@@ -29,6 +29,10 @@ include '.\\command\\lightOnCommand.php';
 include '.\\command\\lightoffCommand.php';
 include '.\\iterator\\NoteficationBar.php';
 include '.\\iterator\\NotifcationCollection.php';
+include '.\\Mediator\\RunWay.php';
+include '.\\Mediator\\fligh.php';
+include '.\\Mediator\\atcMediator.php';
+
 try {
 
     echo 'factory design pattern';
@@ -117,7 +121,15 @@ try {
     $NotfcationCollection = new notifcationCollection();
     $notoicationBar = new NotifcationBar($NotfcationCollection);
     $notoicationBar->printNotifcatins();
-
+    echo"\n---------------------------------------------------------------------\n";
+    echo "Mediator design pattern\n";
+    $atcMediator = new atcMediator();
+    $flight = new flight($atcMediator);
+    $runway = new RunWay($atcMediator);
+    $flight->getReady();
+    $runway->land();
+    $flight->land();
+    echo "\n---------------------------------------------------------------------\n";
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
