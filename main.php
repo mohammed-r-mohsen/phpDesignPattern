@@ -32,7 +32,8 @@ include '.\\iterator\\NotifcationCollection.php';
 include '.\\Mediator\\RunWay.php';
 include '.\\Mediator\\fligh.php';
 include '.\\Mediator\\atcMediator.php';
-
+include '.\\Memento\\life.php';
+include '.\\Memento\\memento.php';
 try {
 
     echo 'factory design pattern';
@@ -130,6 +131,26 @@ try {
     $runway->land();
     $flight->land();
     echo "\n---------------------------------------------------------------------\n";
+    echo "memento design pattern \n";
+    $Memento = array();
+    
+    $life = new life();
+    $life->setTime("1000");
+    
+    $Memento[0] = $life->SaveToMemento();
+
+    $life->setTime("2000");
+    
+    $Memento[1] = $life->SaveToMemento();
+    
+    $life->setTime("3000");
+    
+    $Memento[2] = $life->SaveToMemento();
+
+      foreach ($Memento as $key => $value) {
+        echo $key . " : $value ";
+      }
+    $life->RestorFromMemento($Memento[1]);
 } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
