@@ -38,6 +38,9 @@ include '.\\observer\\PatternSubject.php';
 include '.\\observer\\PatternObserver.php';
 include '.\\State\\AlertStateContext.php';
 include '.\\State\\Silent.php';
+include'.\\Strategy\\ken.php';
+include'.\\Strategy\\lightKick.php';
+include'.\\Strategy\\tornedoKick.php';
 try {
 
     echo 'factory design pattern';
@@ -175,6 +178,19 @@ try {
     $AlertStateContet->setState(new Silent());
     $AlertStateContet->alert();
     $AlertStateContet->alert();
+
+    echo "\n----------------------------------------------------------------\n";
+    echo "Strategy Design Pattern";
+      $kickbehav1 = new lightKick();
+      $kickbehav2 = new tornedoKick();
+      $ken = new ken($kickbehav1);
+
+      $ken->disply();
+      $ken->punch();
+      $ken->kick();
+
+      $ken->SetKick($kickbehav2);
+      $ken->kick();
   } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
