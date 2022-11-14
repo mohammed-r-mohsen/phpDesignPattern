@@ -36,6 +36,8 @@ include '.\\Memento\\life.php';
 include '.\\Memento\\memento.php';
 include '.\\observer\\PatternSubject.php';
 include '.\\observer\\PatternObserver.php';
+include '.\\State\\AlertStateContext.php';
+include '.\\State\\Silent.php';
 try {
 
     echo 'factory design pattern';
@@ -163,7 +165,16 @@ try {
     $patternGossiper->UpdateFav('abstract factory, observer, decorator');
     $patternGossiper->dettach($patternGossipFan);
     $patternGossiper->UpdateFav('abstract factory, observer, paisley');
-
+    
+    echo "\n-----------------------------------------------------------------\n";
+    echo "State  design pattern \n";
+      
+    $AlertStateContet = new AlertStateContext();
+    $AlertStateContet->alert();
+    $AlertStateContet->alert();
+    $AlertStateContet->setState(new Silent());
+    $AlertStateContet->alert();
+    $AlertStateContet->alert();
   } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
