@@ -41,6 +41,8 @@ include '.\\State\\Silent.php';
 include'.\\Strategy\\ken.php';
 include'.\\Strategy\\lightKick.php';
 include'.\\Strategy\\tornedoKick.php';
+include '.\\Template\\NetOrder.php';
+include '.\\Template\\StoreOrder.php';
 try {
 
     echo 'factory design pattern';
@@ -191,6 +193,14 @@ try {
 
       $ken->SetKick($kickbehav2);
       $ken->kick();
+
+      echo "\n----------------------------------------------------------------\n";
+      echo "templae design pattern \n";
+      $netOrder = new NetOrder();
+      $netOrder->processOrder(true);
+      $stoeOrder = new StoreOrder();
+      $stoeOrder->processOrder(true);
+      
   } catch (\Throwable $th) {
     echo 'Error: ' . $th->getMessage() ."\n";
     echo 'Error: ' . $th->getLine() . "\n";
